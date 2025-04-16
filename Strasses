@@ -1,0 +1,35 @@
+void multiplicacionStrassen(vector<vector<int>>& A, vector<vector<int>>& B, vector<vector<int>>& C, int n) {
+    if (n == 1) {
+        C[0][0] = A[0][0] * B[0][0];
+    } else {
+        int m = n / 2;
+        vector<vector<int>> A11(m, vector<int>(m)), A12(m, vector<int>(m)), A21(m, vector<int>(m)), A22(m, vector<int>(m));
+        vector<vector<int>> B11(m, vector<int>(m)), B12(m, vector<int>(m)), B21(m, vector<int>(m)), B22(m, vector<int>(m));
+        vector<vector<int>> C11(m, vector<int>(m)), C12(m, vector<int>(m)), C21(m, vector<int>(m)), C22(m, vector<int>(m));
+        vector<vector<int>> M1(m, vector<int>(m)), M2(m, vector<int>(m)), M3(m, vector<int>(m)), M4(m, vector<int>(m));
+        vector<vector<int>> M5(m, vector<int>(m)), M6(m, vector<int>(m)), M7(m, vector<int>(m));
+
+        // Dividir las matrices A y B en 4 submatrices
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < m; j++) {
+                A11[i][j] = A[i][j];
+                A12[i][j] = A[i][j + m];
+                A21[i][j] = A[i + m][j];
+                A22[i][j] = A[i + m][j + m];
+                B11[i][j] = B[i][j];
+                B12[i][j] = B[i][j + m];
+                B21[i][j] = B[i + m][j];
+                B22[i][j] = B[i + m][j + m];
+            }
+        }
+
+        // Calcular M1 a M7 (Las 7 multiplicaciones de Strassen)
+        // Se realizan operaciones en las matrices para calcular M1, M2, M3, M4, M5, M6, M7
+        // Ejemplo:
+        // M1 = (A11 + A22) * (B11 + B22)
+        // M2 = (A21 + A22) * B11
+        // ...
+
+        // Combinar los resultados para obtener C
+    }
+}
